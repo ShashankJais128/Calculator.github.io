@@ -21,7 +21,6 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
     background-color: rgb(197, 197, 197);
 }
 
@@ -82,7 +81,6 @@ button:hover{
     justify-content: center;
     align-items: center;
     background-color: #c5d6e9;
-    border: 2px solid red;
 }
 
 .age-calculator{
@@ -152,7 +150,6 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
     background-color: rgb(151, 231, 151);
 }
 
@@ -205,7 +202,6 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid blue;
     background-color: #ec483f;
 }
 
