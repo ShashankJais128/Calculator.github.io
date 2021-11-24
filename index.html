@@ -5,13 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Calculator</title>
 </head>
 <body>
 
+    <!-- Navbar -->
+
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        
+        <label class="logo">CALCULATOR</label>
+        <ul>
+            <li class="navlist"><a href="#simple" id="simple1">Simple Calculator</a></li>
+            <li class="navlist"><a href="#age" id="age1">Age Calculator</a></li>
+            <li class="navlist"><a href="#bmi" id="bmi1">BMI Calculator</a></li>
+            <li class="navlist"><a href="#tip" id="tip1">Tip Calculator</a></li>
+        </ul>
+    </nav>
+
     <!-- Simple Calculator Starts -->
 
-    <div class="container-simcalc">  
+    <div class="container-simcalc" id="simple">  
         <div class="simple_calculator">
             <p><b>CALCULATOR</b></p>
             <input type="text" placeholder="0" id="output-screen" class="input-simcalc">
@@ -63,7 +81,7 @@
 
     <!-- Age Calculator Starts -->
 
-    <div class="container-agecalc">
+    <div class="container-agecalc" id="age">
         <div class="age-calculator">
             <p class="text-bg"><b class="text-bg">Age Calculator</b></p>
             <input type="date" id="date-input" class="input-agecalc">
@@ -149,7 +167,7 @@
 
     <!-- Bmi Calculator Starts -->
 
-    <div class="container-bmicalc">
+    <div class="container-bmicalc" id="bmi">
         <div class="bmi-calculator">
             <p><b>BMI CALCULATOR</b></p>
             <p>Height</p>
@@ -199,7 +217,7 @@
 
     <!-- Tip Calculator Starts -->
 
-    <div class="container-tipcalc">
+    <div class="container-tipcalc" id="tip">
         <div class="tip-calculator">
             <p style="margin-bottom: 30px;"><b>TIP CALCULATOR</b></p>
             <p>Bill Amnount?</p>
