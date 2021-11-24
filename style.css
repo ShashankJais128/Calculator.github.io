@@ -2,16 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ecf0f3;
     font-family: sans-serif;
     outline: none;
 }
 
-.container{
+p{
+    color: rgb(70, 70, 70);
+    font-size: 25px;
+    font-style: oblique;
+}
+button:hover{
+    opacity: 50%;
+}
+
+/* simple calculator starts */
+.container-simcalc{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid red;
+    background-color: rgb(197, 197, 197);
 }
 
 .simple_calculator{
@@ -24,7 +35,7 @@
     grid-template-columns: repeat(4,68px);
 }
 
-input{
+.input-simcalc{
     grid-column: span 4;
     height: 70px;
     width: 260px;
@@ -37,12 +48,12 @@ input{
     font-size: 50px;
     text-align: end;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 30px;
     padding: 20px;
 }
 
-button{
+.button-simcalc{
     height: 48px;
     width: 48px;
     background-color: #ecf0f3;
@@ -53,12 +64,200 @@ button{
     margin: 8px;
     font-size: 16px;         
 }
-button:hover{
-    opacity: 50%;
-}
+
 
 .equal{
     width: 115px;
     border-radius: 40px;
     background-color: ;
+}
+
+/* simple calculator ends */
+
+/* age calculatro starts */
+
+.container-agecalc{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5d6e9;
+    border: 2px solid red;
+}
+
+.age-calculator{
+    background-color: #A7C7E7;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #c7dff7,
+                      5px 5px 12px rgba(0,0,0,.16);
+}
+
+.input-agecalc{
+    height: 60px;
+    width: 360px;
+    background-color: #A7C7E7;
+    box-shadow: inset -5px -5px 12px #c7dff7,
+                inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.button-agecalc{
+    height: 60px;
+    width: 160px;
+    background-color: #A7C7E7;
+    box-shadow: -5px -5px 12px #c7dff7,
+                5px 5px 12px rgba(0,0,0,.16);
+    border: none;   
+    border-radius: 30px;
+    margin-left: 10px;
+    font-size: 30px;         
+}
+
+
+.output-wrap{
+    background-color: #A7C7E7;
+    display: flex;
+}
+span{
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #A7C7E7;
+    box-shadow: -5px -5px 12px #c7dff7,
+                5px 5px 12px rgba(0,0,0,.16);
+}
+
+.text-bg{
+    background-color: #A7C7E7;
+}
+
+/* age calculator ends */
+
+/* bmi calculator starts */
+
+.container-bmicalc{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    background-color: rgb(151, 231, 151);
+}
+
+.bmi-calculator{
+    background-color: #77dd77;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #8ff18f,
+                      5px 5px 12px rgba(0,0,0,.16);
+}
+
+.input-bmicalc{
+    height: 30px;
+    width: 200px;
+    background-color: #77dd77;
+    box-shadow: inset -5px -5px 12px #8ff18f,
+                inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    font-size: 20px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.button-bmicalc{
+    height: 44px;
+    width: 150px;
+    background-color: #77dd77;
+    box-shadow: -5px -5px 12px #8ff18f,
+                5px 5px 12px rgba(0,0,0,.16);
+    border: none;   
+    border-radius: 20px;
+    margin: 8px;
+    font-size: 16px;         
+}
+.calc-div{
+    text-align: center;
+}
+
+/* bmi calculator ends */
+
+/* tip calculator starts */
+
+
+.container-tipcalc{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blue;
+    background-color: #ec483f;
+}
+
+.tip-calculator{
+    background-color: #ff6961;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #f8908b,
+                      5px 5px 12px rgba(0,0,0,.16);
+    
+}
+
+.input-tipcalc{
+    height: 50px;
+    width: 240px;
+    background-color: #ff6961;
+    box-shadow: inset -5px -5px 12px #f8908b,
+                inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+select{
+    height: 50px;
+    width: 240px;
+    background-color: #ff6961;
+    box-shadow: inset -5px -5px 12px #f8908b,
+                inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    font-size: 25px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 8px;
+}
+
+.button-tipcalc{
+    height: 48px;
+    width: 130px;
+    background-color: #ff6961;
+    box-shadow: -5px -5px 12px #f8908b,
+                5px 5px 12px rgba(0,0,0,.16);
+    border: none;   
+    border-radius: 25px;
+    margin: 8px;
+    font-size: 25px;         
 }

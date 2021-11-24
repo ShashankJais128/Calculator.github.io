@@ -9,56 +9,254 @@
 </head>
 <body>
 
-    <!--Simple Calculator-->
+    <!-- Simple Calculator Starts -->
 
-    <div class="container">
+    <div class="container-simcalc">  
         <div class="simple_calculator">
-            <input type="text" placeholder="0" id="output-screen">
-            <button onclick="Clear()">Cl</button>
-            <button onclick="del()">DEL</button>
-            <button onclick="display('%')">%</button>
-            <button onclick="display('/')">/</button>
-            <button onclick="display('7')">7</button>
-            <button onclick="display('8')">8</button>
-            <button onclick="display('9')">9</button>
-            <button onclick="display('*')">*</button>
-            <button onclick="display('4')">4</button>
-            <button onclick="display('5')">5</button>
-            <button onclick="display('6')">6</button>
-            <button onclick="display('-')">-</button>
-            <button onclick="display('1')">1</button>
-            <button onclick="display('2')">2</button>
-            <button onclick="display('3')">3</button>
-            <button onclick="display('+')">+</button>
-            <button onclick="display('.')">.</button>
-            <button onclick="display('0')">0</button>
-            <button onclick="Calculate('=')" class="equal">=</button>
-
-        
-        
-        
-        <script>
-            let outputScreen = document.getElementById("output-screen");
-
-            function display(num){
-                outputScreen.value += num;
-            }
-            function Calculate(){
-                try{
-                    outputScreen.value = eval(outputScreen.value);
-                }
-                catch(err){
-                    alert("Invalid");
-                }
-            }
-            function Clear(){
-                outputScreen.value = "";
-            }
-            function del(){
-                outputScreen.value = outputScreen.value.slice(0,-1);
-            }
-        </script>
+            <p><b>CALCULATOR</b></p>
+            <input type="text" placeholder="0" id="output-screen" class="input-simcalc">
+            <button class="button-simcalc" onclick="Clear()">Cl</button>
+            <button class="button-simcalc" onclick="del()">DEL</button>
+            <button class="button-simcalc" onclick="display('%')">%</button>
+            <button class="button-simcalc" onclick="display('/')">/</button>
+            <button class="button-simcalc" onclick="display('7')">7</button>
+            <button class="button-simcalc" onclick="display('8')">8</button>
+            <button class="button-simcalc" onclick="display('9')">9</button>
+            <button class="button-simcalc" onclick="display('*')">*</button>
+            <button class="button-simcalc" onclick="display('4')">4</button>
+            <button class="button-simcalc" onclick="display('5')">5</button>
+            <button class="button-simcalc" onclick="display('6')">6</button>
+            <button class="button-simcalc" onclick="display('-')">-</button>
+            <button class="button-simcalc" onclick="display('1')">1</button>
+            <button class="button-simcalc" onclick="display('2')">2</button>
+            <button class="button-simcalc" onclick="display('3')">3</button>
+            <button class="button-simcalc" onclick="display('+')">+</button>
+            <button class="button-simcalc" onclick="display('.')">.</button>
+            <button class="button-simcalc" onclick="display('0')">0</button>
+            <button class="button-simcalc" onclick="Calculate('=')" class="equal">=</button>        
         </div>
     </div>
+
+    <script>
+        let outputScreen = document.getElementById("output-screen");
+
+        function display(num){
+            outputScreen.value += num;
+        }
+        function Calculate(){
+            try{
+                outputScreen.value = eval(outputScreen.value);
+            }
+            catch(err){
+                alert("Invalid");
+            }
+        }
+        function Clear(){
+            outputScreen.value = "";
+        }
+        function del(){
+            outputScreen.value = outputScreen.value.slice(0,-1);
+        }
+    </script>
+
+    <!-- Simple Calculator Ends  -->
+
+    <!-- Age Calculator Starts -->
+
+    <div class="container-agecalc">
+        <div class="age-calculator">
+            <p class="text-bg"><b class="text-bg">Age Calculator</b></p>
+            <input type="date" id="date-input" class="input-agecalc">
+            <button onclick="ageCalculate()" class="button-agecalc">Calculate</button>
+            <div class="output-wrap">
+                <span><p id="years" class="text-bg">--</p><p class="text-bg">Years</p></span>
+                <span><p id="months" class="text-bg">--</p><p class="text-bg">Months</p></span>
+                <span><p id="days" class="text-bg">--</p><p class="text-bg">Days</p></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const months = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+        function ageCalculate(){
+            let today = new Date();
+            let inputDate = new Date(document.getElementById("date-input").value);
+            let birthMonth,birthDate,birthYear;
+            let birthDetails = {
+                date:inputDate.getDate(),
+                month:inputDate.getMonth()+1,
+                year:inputDate.getFullYear()
+            }
+            let currentYear = today.getFullYear();
+            let currentMonth = today.getMonth()+1;
+            let currentDate = today.getDate();
+
+            leapChecker(currentYear);
+
+            if(
+                birthDetails.year > currentYear ||
+                ( birthDetails.month > currentMonth && birthDetails.year == currentYear) || 
+                (birthDetails.date > currentDate && birthDetails.month == currentMonth && birthDetails.year == currentYear)
+            ){
+                alert("Not Born Yet");
+                displayResult("-","-","-");
+                return;
+            }
+
+            birthYear = currentYear - birthDetails.year;
+
+            if(currentMonth >= birthDetails.month){
+                birthMonth = currentMonth - birthDetails.month;
+            }
+            else{
+                birthYear--;
+                birthMonth = 12 + currentMonth - birthDetails.month;
+            }
+
+            if(currentDate >= birthDetails.date){
+                birthDate = currentDate - birthDetails.date;
+            }
+            else{
+                birthMonth--;
+                let days = months[currentMonth - 2];
+                birthDate = days + currentDate - birthDetails.date;
+                if(birthMonth < 0){
+                    birthMonth = 11;
+                    birthYear--;
+                }
+            }
+            displayResult(birthDate,birthMonth,birthYear);
+        }
+
+        function displayResult(bDate,bMonth,bYear){
+            document.getElementById("years").textContent = bYear;
+            document.getElementById("months").textContent = bMonth;
+            document.getElementById("days").textContent = bDate;
+        }
+
+        function leapChecker(year){
+            if(year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)){
+                months[1] = 29;
+            }
+            else{
+                months[1] = 28;
+            }
+        }
+    </script>
+
+    <!-- Age Calculator Ends -->
+
+    <!-- Bmi Calculator Starts -->
+
+    <div class="container-bmicalc">
+        <div class="bmi-calculator">
+            <p><b>BMI CALCULATOR</b></p>
+            <p>Height</p>
+            <input type="number" placeholder="0" id="h" class="input-bmicalc">
+            <button class="button-bmicalc">cm</button>
+            <p>Weight</p>
+            <input type="number" placeholder="0" id="w" class="input-bmicalc">
+            <button class="button-bmicalc">kg</button> <br>
+            <p id="result" style="text-align: center;"></p>
+            <p id="result-1" style="text-align: center;"></p>
+            <div class="calc-div">
+                <button class="button-bmicalc" onClick="BMI()">Calculate</button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+		function BMI() {
+			var h=document.getElementById('h').value;
+			var w=document.getElementById('w').value;
+			var bmi=w/(h/100*h/100);
+			var bmio=(bmi.toFixed(2));
+
+			document.getElementById("result").innerHTML="Your BMI is " + bmio;
+
+            if(bmi < 18.5){
+                console.log("underweight")
+                document.getElementById("result-1").innerText = "(You are underweight)";
+            }else if (bmi >= 18.5 && bmi < 25) {
+                console.log("normal")
+                document.getElementById("result-1").innerText = "(You are healthy)";
+            }else if (bmi >= 25 && bmi < 30) {
+                console.log("overwight")
+                document.getElementById("result-1").innerText = "(You are overwight)"; 
+            }else if (bmi >= 30) {
+                console.log("obese")
+                document.getElementById("result-1").innerText = "(You are obese)";
+            }
+		}
+
+        
+	</script>
+
+    <!-- Bmi Calcilator Ends -->
+
+    <!-- Tip Calculator Starts -->
+
+    <div class="container-tipcalc">
+        <div class="tip-calculator">
+            <p style="margin-bottom: 30px;"><b>TIP CALCULATOR</b></p>
+            <p>Bill Amnount?</p>
+            <input type="number" id="amount" class="input-tipcalc">
+            <p>How was the service?</p>
+            <select name="services" id="service">
+                <option selected disabled hidden>Select</option>
+                <option value="25">Excellent - 25%</option>
+                <option value="20">Very Good - 20%</option>
+                <option value="15">Good - 15%</option>
+                <option value="10">Bad - 10%</option>
+                <option value="5">Very Bad - 5%</option>
+            </select>
+
+            <p>Number of people</p>
+            <input type="number" id="persons" class="input-tipcalc">
+            <button onclick="TIP()" class="button-tipcalc">Calculate</button>
+
+            <div style="display: flex;"><p style="margin-bottom: 10px;">Total Bill Amount = &#8377</p> <p id="totalbill">0</p></div>
+            <div style="display: flex;"><p style="margin-bottom: 10px;">Tip Per Person = &#8377</p> <p id="tpp">0</p></div>
+            <div style="display: flex;"><p>Total Bill Per Person = &#8377</p> <p id="tbpp">0</p></div>
+        </div>
+    </div>
+
+
+    <script>
+        function TIP(){
+            let amount = document.getElementById('amount').value;
+            let service = document.getElementById('service').value;
+            let persons = document.getElementById('persons').value;
+            console.log(amount);
+
+            if(amount === '' || service === 'Select'){
+                alert("Please enter valid values");
+                return;
+            }
+
+            let billTotal = parseInt(amount) + parseInt(amount*service/100);
+            console.log(billTotal);
+
+            let tipPP = amount*(service/100)/persons;
+            console.log(tipPP);
+
+            let totalPP = billTotal/persons;
+            console.log(totalPP);  
+
+            document.getElementById("totalbill").innerHTML = billTotal.toFixed(2);
+            document.getElementById("tpp").innerHTML = tipPP.toFixed(2);
+            document.getElementById("tbpp").innerHTML = totalPP.toFixed(2);
+            
+
+
+
+        }
+
+    </script>
+
+
 </body>
 </html>
