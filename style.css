@@ -17,7 +17,7 @@ button:hover{
 /* Navbar */
 nav{
     background: black;
-    opacity: 90%;
+    opacity: 70%;
     height: 80px;
     width: 100%;
     position: fixed;
@@ -93,7 +93,7 @@ a{
 
     }
 }
-@media (max-width: 858px){
+@media (max-width: 972px){
     .checkbtn{
         display: block;
     }
@@ -247,7 +247,7 @@ a{
     border: none;   
     border-radius: 30px;
     margin-left: 10px;
-    font-size: 30px;         
+    font-size: 25px;         
 }
 
 
@@ -317,7 +317,7 @@ span{
     border: none;   
     border-radius: 20px;
     margin: 8px;
-    font-size: 16px;         
+    font-size: 25px;         
 }
 .calc-div{
     text-align: center;
@@ -346,8 +346,8 @@ span{
 }
 
 .input-tipcalc{
-    height: 50px;
-    width: 240px;
+    height: 40px;
+    width: 200px;
     background-color: #ff6961;
     box-shadow: inset -5px -5px 12px #f8908b,
                 inset 5px 5px 12px rgba(0,0,0,.16);
@@ -357,28 +357,28 @@ span{
     font-size: 30px;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 20px;
 }
 
 select{
-    height: 50px;
-    width: 240px;
+    height: 40px;
+    width: 200px;
     background-color: #ff6961;
     box-shadow: inset -5px -5px 12px #f8908b,
                 inset 5px 5px 12px rgba(0,0,0,.16);
     border: none;
     border-radius: 30px;
     color: rgb(70, 70, 70);
-    font-size: 25px;
+    font-size: 20px;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 8px;
 }
 
 .button-tipcalc{
-    height: 48px;
+    height: 40px;
     width: 130px;
     background-color: #ff6961;
     box-shadow: -5px -5px 12px #f8908b,

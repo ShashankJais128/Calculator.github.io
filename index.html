@@ -18,7 +18,7 @@
             <i class="fas fa-bars"></i>
         </label>
         
-        <label class="logo">CALCULATOR</label>
+        <label class="logo">CALCx</label>
         <ul>
             <li class="navlist"><a href="#simple" id="simple1">Simple Calculator</a></li>
             <li class="navlist"><a href="#age" id="age1">Age Calculator</a></li>
@@ -51,7 +51,7 @@
             <button class="button-simcalc" onclick="display('+')">+</button>
             <button class="button-simcalc" onclick="display('.')">.</button>
             <button class="button-simcalc" onclick="display('0')">0</button>
-            <button class="button-simcalc" onclick="Calculate('=')" class="equal">=</button>        
+            <button class="button-simcalc" onclick="Calculate('=')" class="equal" id="eql">=</button>        
         </div>
     </div>
 
@@ -61,6 +61,15 @@
         function display(num){
             outputScreen.value += num;
         }
+
+        outputScreen.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("eql").click();
+            }
+        });
+
+
         function Calculate(){
             try{
                 outputScreen.value = eval(outputScreen.value);
@@ -85,7 +94,7 @@
         <div class="age-calculator">
             <p class="text-bg"><b class="text-bg">Age Calculator</b></p>
             <input type="date" id="date-input" class="input-agecalc">
-            <button onclick="ageCalculate()" class="button-agecalc">Calculate</button>
+            <button onclick="ageCalculate()" class="button-agecalc" id="dtbtn">Calculate</button>
             <div class="output-wrap">
                 <span><p id="years" class="text-bg">--</p><p class="text-bg">Years</p></span>
                 <span><p id="months" class="text-bg">--</p><p class="text-bg">Months</p></span>
@@ -96,6 +105,14 @@
 
     <script>
         const months = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+        var input = document.getElementById("date-input");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("dtbtn").click();
+            }
+        });
 
         function ageCalculate(){
             let today = new Date();
@@ -179,7 +196,7 @@
             <p id="result" style="text-align: center;"></p>
             <p id="result-1" style="text-align: center;"></p>
             <div class="calc-div">
-                <button class="button-bmicalc" onClick="BMI()">Calculate</button>
+                <button class="button-bmicalc" onClick="BMI()" id="bmibtn">Calculate</button>
             </div>
             
         </div>
@@ -210,6 +227,14 @@
             }
 		}
 
+        var input = document.getElementById("w");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("bmibtn").click();
+            }
+        });
+
         
 	</script>
 
@@ -234,7 +259,7 @@
 
             <p>Number of people</p>
             <input type="number" id="persons" class="input-tipcalc">
-            <button onclick="TIP()" class="button-tipcalc">Calculate</button>
+            <button onclick="TIP()" class="button-tipcalc" id="tipbtn">Calculate</button>
 
             <div style="display: flex;"><p style="margin-bottom: 10px;">Total Bill Amount = &#8377</p> <p id="totalbill">0</p></div>
             <div style="display: flex;"><p style="margin-bottom: 10px;">Tip Per Person = &#8377</p> <p id="tpp">0</p></div>
@@ -267,11 +292,16 @@
             document.getElementById("totalbill").innerHTML = billTotal.toFixed(2);
             document.getElementById("tpp").innerHTML = tipPP.toFixed(2);
             document.getElementById("tbpp").innerHTML = totalPP.toFixed(2);
-            
-
-
-
+        
         }
+
+        var input = document.getElementById("persons");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("tipbtn").click();
+            }
+        });
 
     </script>
 
