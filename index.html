@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Calculator</title>
+    <title>Calcumate</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Favicon/site.webmanifest">
 </head>
 <body>
 
@@ -18,7 +23,7 @@
             <i class="fas fa-bars"></i>
         </label>
         
-        <label class="logo">CALCx</label>
+        <label class="logo">CALCUMATE</label>
         <ul>
             <li class="navlist"><a href="#simple" id="simple1">Simple Calculator</a></li>
             <li class="navlist"><a href="#age" id="age1">Age Calculator</a></li>
@@ -154,6 +159,9 @@
             }
             else{
                 birthMonth--;
+                if(currentMonth<2){
+                    currentMonth = 12+currentMonth;
+                }
                 let days = months[currentMonth - 2];
                 birthDate = days + currentDate - birthDetails.date;
                 if(birthMonth < 0){
